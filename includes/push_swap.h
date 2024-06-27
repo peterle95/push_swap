@@ -10,3 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include "../libft/libft.h"
+
+typedef struct s_push_swap
+{
+    int value;
+    int index;
+    struct s_push_swap  *next;
+}t_push_swap;
+
+
+# include <stddef.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+#endif

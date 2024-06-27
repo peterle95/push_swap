@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putuint_printf.c                                :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 16:03:36 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/01/12 21:08:21 by pmolzer          ###   ########.fr       */
+/*   Created: 2017/10/30 16:06:54 by sshiling          #+#    #+#             */
+/*   Updated: 2017/10/30 16:15:42 by sshiling         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putuint_printf(unsigned int num, size_t *counter)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	char	*str;
-
-	str = ft_aux_printf(num, "0123456789");
-	ft_putstr_printf(str, counter);
-	free(str);
-	str = NULL;
+	while (*s1 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

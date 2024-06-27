@@ -40,12 +40,7 @@ SRC = ft_isalpha \
 	ft_putendl_fd \
 	ft_putnbr_fd \
 	ft_printf			    \
-	ft_putchar_printf		\
 	ft_putstr_printf		\
-	ft_putnbr_printf		\
-	ft_putuint_printf		\
-	ft_puthex_printf		\
-	ft_putptr_printf		\
 	ft_aux_printf			\
 
 SRCS = $(addsuffix .c, $(SRC))
