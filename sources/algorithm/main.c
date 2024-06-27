@@ -13,18 +13,31 @@
 #include "../../includes/push_swap.h"
 #include<stdio.h>
 
+#include "push_swap.h"
+
 int main(int ac, char **av)
 {
-      int i = 1; // Loop counter starting from 1 (skip program name)
+    t_push_swap *stack_a;
+    t_push_swap *stack_b;
+    int i;
 
-  if (ac > 1) {
-    while (av[i] != NULL) { // Loop until null terminator
-      printf("%s\n", av[i]);
-      i++;
+    if (ac < 2)
+        return (0);
+
+    stack_a = NULL;
+    stack_b = NULL;
+    ft_check_input(ac, av); 
+    stack_a = (t_push_swap **)malloc(sizeof(t_push_swap));
+    stack_b = (t_push_swap **)malloc(sizeof(t_push_swap));
+    init_stack(&stack_a, &stack_b);
+    if(is_stack_sorted(stack_a))
+    {
+      free_stack(stack_a);
+      free_stack(stack_b);
+      return (0);
     }
-  } else {
-    printf("OK\n"); // Print OK if no arguments
-  }
-
-  return 0;
+    run_algorithm(stack_a, stack_b);
+    free_stack(stack_a);
+    free_stack(stack_b);
+    return (0);
 }
