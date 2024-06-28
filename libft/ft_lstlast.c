@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 12:15:31 by pmolzer           #+#    #+#             */
-/*   Updated: 2023/11/22 12:29:51 by pmolzer          ###   ########.fr       */
+/*   Created: 2024/03/07 19:14:55 by Henriette         #+#    #+#             */
+/*   Updated: 2024/06/28 22:44:57 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	DESCRIPTION :
-	The function ft_putchar_fd writes the given character to the given
-	file descriptor.
-
-	RETURN VALUE :
-	None.
-*/
-
 #include "libft.h"
-// #include <stdio.h>
 
-void	ft_putchar_fd(char c, int fd)
+t_list  *ft_lstlast(t_list *lst)
 {
-	write(fd, &c, 1);
+	t_list	*temp;
+
+	if (!lst)
+		return (NULL);
+	temp = lst;
+	while (temp->next != NULL)
+		temp = temp->next;
+	return (temp);
 }
-
-/*int main()
-{
-  char c = 'A';
-  int fd = 1; // stdout
-
-  ft_putchar_fd(c, fd);
-
-  return 0;
-}*/

@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putptr_printf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 12:15:31 by pmolzer           #+#    #+#             */
-/*   Updated: 2023/11/22 12:29:51 by pmolzer          ###   ########.fr       */
+/*   Created: 2024/01/01 16:03:20 by pmolzer           #+#    #+#             */
+/*   Updated: 2024/01/12 21:08:21 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	DESCRIPTION :
-	The function ft_putchar_fd writes the given character to the given
-	file descriptor.
-
-	RETURN VALUE :
-	None.
-*/
-
 #include "libft.h"
-// #include <stdio.h>
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putptr_printf(void *ptr, size_t *counter)
 {
-	write(fd, &c, 1);
+	char			*str;
+	unsigned long	ptr_address;
+
+	if (!ptr)
+	{
+		ft_putstr_printf("(nil)", counter);
+		return ;
+	}
+	ptr_address = (unsigned long)ptr;
+	ft_putstr_printf("0x", counter);
+	str = ft_aux_printf(ptr_address, HEX_LOW_BASE);
+	ft_putstr_printf(str, counter);
+	free(str);
+	str = NULL;
 }
-
-/*int main()
-{
-  char c = 'A';
-  int fd = 1; // stdout
-
-  ft_putchar_fd(c, fd);
-
-  return 0;
-}*/

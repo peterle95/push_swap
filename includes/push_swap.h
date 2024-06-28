@@ -30,4 +30,13 @@ typedef struct s_push_swap
 # include <stdlib.h>
 # include <unistd.h>
 
+
+// Rotation
+int ra(t_push_swap **stack_a);
+int rb(t_push_swap **stack_b);
+int rr(t_push_swap **stack_a, t_push_swap **stack_b);
+
+// Parsing / Checking Input
+int ft_check_input(int ac, char **av);
+
 #endif
