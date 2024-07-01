@@ -13,7 +13,6 @@
 #include "../../includes/push_swap.h"
 #include<stdio.h>
 
-#include <stdio.h>
 
 t_push_swap *ft_listlast(t_push_swap *lst)
 {
