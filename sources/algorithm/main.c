@@ -6,14 +6,12 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:51:34 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/08 16:20:23 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/08 18:48:03 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-#include<stdio.h>
 
-// DEBUG.C or add to an existing file
 void print_stacks(t_push_swap **stack_a, t_push_swap **stack_b)
 {
     t_push_swap *temp_a = *stack_a;
@@ -74,13 +72,13 @@ int main(int ac, char **av)
         free_stack(stack_b);
         return (0);
     }
-    
+    */
     printf("Running algorithm...\n");
     run_algorithm(stack_a, stack_b);
     
     printf("Final state of stacks:\n");
     print_stacks(stack_a, stack_b);
-    */
+    
 
     printf("Freeing memory...\n");
     free_stack(stack_a);

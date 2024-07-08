@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 16:13:49 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/08 16:14:56 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/08 18:32:03 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,19 @@ int push_swap_lstsize(t_push_swap *lst)
 		temp = temp->next;
 	}
 	return (i);
+}
+
+// Returns the last node of a list 
+t_push_swap	*push_swap_lstlast(t_push_swap *head)
+{
+	t_push_swap	*tmp;
+
+	tmp = head;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+		if (tmp->next == NULL)
+			return (tmp);
+	}
+	return (tmp);
 }

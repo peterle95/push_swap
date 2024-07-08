@@ -6,26 +6,13 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 21:57:08 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/08 16:15:10 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/08 18:29:31 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-#include<stdio.h>
 
-
-t_push_swap *ft_listlast(t_push_swap *lst)
-{
-    if (lst == NULL) {
-        return NULL; // Empty list
-    }
-
-    while (lst->next != NULL) {
-        lst = lst->next;
-    }
-
-    return lst; // Last element
-}
+// CHECK
 
 int rotate(t_push_swap **stack)
 {
@@ -36,7 +23,7 @@ int rotate(t_push_swap **stack)
 
     // Get the head and the last element
     t_push_swap *head = *stack;
-    t_push_swap *last = ft_listlast(head);
+    t_push_swap *last = push_swap_lstlast(head);
 
     // Update head to point to the second element
     *stack = head->next;

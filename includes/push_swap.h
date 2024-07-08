@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:51:41 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/08 16:15:26 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/08 18:39:20 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,28 @@ typedef struct s_push_swap
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
 
 
 // Rotation
 int ra(t_push_swap **stack_a);
 int rb(t_push_swap **stack_b);
 int rr(t_push_swap **stack_a, t_push_swap **stack_b);
+
+// Reverse_rotation
+int	rra(t_push_swap **stack_a);
+int	rrb(t_push_swap **stack_b);
+int	rrr(t_push_swap **stack_a, t_push_swap **stack_b);
+
+// Push
+int	pa(t_push_swap **stack_a, t_push_swap **stack_b);
+int	pb(t_push_swap **stack_a, t_push_swap **stack_b);
+
+// Swap
+int	sa(t_push_swap **stack_a);
+int	sb(t_push_swap **stack_b);
+int	ss(t_push_swap **stack_a, t_push_swap **stack_b);
 
 // Parsing / Checking Input
 int parse(int ac, char **av);
@@ -59,5 +73,13 @@ long ft_atol(const char *str);
 
 // Lists
 int push_swap_lstsize(t_push_swap *lst);
+t_push_swap *push_swap__listlast(t_push_swap *lst);
+t_push_swap	*push_swap_lstlast(t_push_swap *head);
+
+// Algorithm
+void run_algorithm(t_push_swap **stack_a, t_push_swap **stack_b);
+
+// Debugging
+void print_stacks(t_push_swap **stack_a, t_push_swap **stack_b);
 
 #endif
