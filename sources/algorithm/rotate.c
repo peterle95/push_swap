@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 21:57:08 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/06/28 21:57:08 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/08 16:15:10 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int rb(t_push_swap **stack_b)
 
 int rr(t_push_swap **stack_a, t_push_swap **stack_b)
 {
-    if (ft_lstsize(*stack_a) < 2 || ft_lstsize(*stack_b) < 2) {
+    if (push_swap_lstsize(*stack_a) < 2 || push_swap_lstsize(*stack_b) < 2) {
         return (-1);
     }
     rotate(stack_a);
