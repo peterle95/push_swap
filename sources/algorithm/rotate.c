@@ -59,7 +59,7 @@ int ra(t_push_swap **stack_a)
     return (0);
 }
 
-/* int rb(t_push_swap **stack_b)
+int rb(t_push_swap **stack_b)
 {
     if (rotate(stack_b) == -1) {
         return (-1);
@@ -77,4 +77,4 @@ int rr(t_push_swap **stack_a, t_push_swap **stack_b)
     rotate(stack_b);
     ft_putendl_fd("rr", 1); // Assuming ft_putendl_fd prints "rr" to stdout
     return (0);
-} */
+}
