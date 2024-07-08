@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 22:11:47 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/08 16:16:48 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/08 23:06:45 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,23 @@ int is_number(char *str)
 
 int check_duplicates(int ac, char **av)
 {
-    int i, j;
+    int     i;
+    int     j;
     long num1, num2;
 
-    for (i = 1; i < ac - 1; i++)
+    i = 1;
+    while (i < ac - 1)
     {
-        for (j = i + 1; j < ac; j++)
+        j = i + 1;
+        while (j < ac)
         {
             num1 = ft_atol(av[i]);
             num2 = ft_atol(av[j]);
             if (num1 == num2)
                 return (1);
+            j++;
         }
+    i++;
     }
     return (0);
 }
@@ -50,9 +55,10 @@ int parse(int ac, char **av)
     int i;
     long num;
 
+    i = 1;
     if (ac < 2)
         return (0);
-    for (i = 1; i < ac; i++)
+    while (i < ac)
     {
         if (!is_number(av[i]))
         {
@@ -65,6 +71,7 @@ int parse(int ac, char **av)
             ft_putendl_fd("Error", 2);
             return (0);
         }
+    i++;
     }
     if (check_duplicates(ac, av))
     {
