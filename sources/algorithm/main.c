@@ -20,14 +20,13 @@ int main(int ac, char **av)
 
     if (ac < 2)
         return (0);
-
     stack_a = (t_push_swap **)malloc(sizeof(t_push_swap));
     stack_b = (t_push_swap **)malloc(sizeof(t_push_swap));
     *stack_a = NULL;
-    stack_b = NULL;
+    *stack_b = NULL;
     ft_check_input(ac, av); 
     printf("exit checker\n");
-    init_stack(&stack_a, &stack_b);
+    init_stack(&stack_a, &stack_b, ac, av);
     if(is_stack_sorted(stack_a))
     {
       free_stack(stack_a);

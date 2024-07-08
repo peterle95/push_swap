@@ -41,4 +41,9 @@ int rr(t_push_swap **stack_a, t_push_swap **stack_b);
 // Parsing / Checking Input
 int ft_check_input(int ac, char **av);
 
+// Initialization
+void init_stack(t_push_swap ***stack_a, t_push_swap ***stack_b, int ac, char **av);
+t_push_swap *create_new_node(int value);
+void add_to_stack(t_push_swap **stack, t_push_swap *new_node);
+
 #endif
