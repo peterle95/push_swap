@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 18:18:43 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/08 23:10:41 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/09 14:57:35 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,31 @@ By simplifying the logic, we've reduced the function from 22 lines to 9 lines, m
 
 This simplified version accomplishes the same task more efficiently and with less potential for errors. It's more intuitive to understand at a glance what the function is doing, which is important for code maintainability and debugging.*/
 
-int push(t_push_swap **stack_to, t_push_swap **stack_from)
+int	push(t_push_swap **stack_to, t_push_swap **stack_from)
 {
-	t_push_swap *tmp;
-    
-	if (*stack_from == NULL)
-        return (-1);
+	t_push_swap	*tmp;
+	t_push_swap	*head_to;
+	t_push_swap	*head_from;
 
-    tmp = *stack_from;
-    *stack_from = (*stack_from)->next;
-    
-    tmp->next = *stack_to;
-    *stack_to = tmp;
-
-    return (0);
+	if (push_swap_lstsize(*stack_from) == 0)
+		return (-1);
+	head_to = *stack_to;
+	head_from = *stack_from;
+	tmp = head_from;
+	head_from = head_from->next;
+	*stack_from = head_from;
+	if (!head_to)
+	{
+		head_to = tmp;
+		head_to->next = NULL;
+		*stack_to = head_to;
+	}
+	else
+	{
+		tmp->next = head_to;
+		*stack_to = tmp;
+	}
+	return (0);
 }
 
 /*Take the first element at the top of b and put it at the top of a.

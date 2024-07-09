@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 18:19:09 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/08 23:19:36 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/09 15:00:05 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // CHANGE
 // Swaps first two elements of a stack | sa and sb
 
-/* int	swap(t_push_swap **stack)
+int	swap(t_push_swap **stack)
 {
 	t_push_swap	*head;
 	t_push_swap	*next;
@@ -36,38 +36,6 @@
 	next->value = tmp_val;
 	next->index = tmp_index;
 	return (0);
-} */
-
-/*Simplified condition check:
-Instead of using push_swap_lstsize, we directly check if the stack is empty or has only one element. This is more efficient and easier to read.
-Removed redundant check:
-The condition if (!head && !next) was redundant because we already check for these cases in the first condition.
-Renamed variables for clarity:
-Changed head to first and next to second, which better describes their roles in the swap operation.
-Removed unnecessary variable declarations:
-We don't need separate head and next variables. We can work directly with *stack and (*stack)->next.
-Streamlined swap logic:
-The swap operation remains essentially the same, but the code is more compact and easier to follow.
-Reduced function complexity:
-By simplifying the logic, we've reduced the function from 16 lines to 12 lines, making it easier to read and maintain.*/
-
-int swap(t_push_swap **stack)
-{
-    if (*stack == NULL || (*stack)->next == NULL)
-        return (-1);
-
-    t_push_swap *first = *stack;
-    t_push_swap *second = first->next;
-
-    int tmp_val = first->value;
-    int tmp_index = first->index;
-
-    first->value = second->value;
-    first->index = second->index;
-    second->value = tmp_val;
-    second->index = tmp_index;
-
-    return (0);
 }
 
 int	sa(t_push_swap **stack_a)

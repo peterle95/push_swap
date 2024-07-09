@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:51:34 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/09 13:49:18 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/09 14:42:35 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,14 @@ int main(int ac, char **av)
 
     printf("Starting program with %d arguments\n", ac);
 
+     // printf("Parsing input...\n");
+    if (parse(ac, av) == 0)
+    {
+        printf("Parsing failed\n");
+        return(0);
+    }
+    // printf("Parsing successful\n");
+
     stack_a = (t_push_swap **)malloc(sizeof(t_push_swap));
     stack_b = (t_push_swap **)malloc(sizeof(t_push_swap));
     *stack_a = NULL;
@@ -74,14 +82,6 @@ int main(int ac, char **av)
     
    // printf("After initialization:\n");
     // print_stacks(stack_a, stack_b);
-
-    // printf("Parsing input...\n");
-    if (parse(ac, av) == 0)
-    {
-        printf("Parsing failed\n");
-        return(0);
-    }
-    // printf("Parsing successful\n");
 
     /* Uncomment when implemented
     if (is_stack_sorted(stack_a))

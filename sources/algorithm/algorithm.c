@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 16:24:47 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/09 13:45:03 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/09 14:54:09 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,5 +173,4 @@ void run_algorithm(t_push_swap **stack_a, t_push_swap **stack_b)
     else
         radix(stack_a, stack_b);
     printf("Ending algorithm\n");
-    print_stacks(stack_a, stack_b);
 }
