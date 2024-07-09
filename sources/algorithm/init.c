@@ -12,22 +12,22 @@
 
 #include "../../includes/push_swap.h"
 
-void assign_indices(t_push_swap **stack)
+void	assign_indices(t_push_swap **stack)
 {
-    int index = 0;
-    t_push_swap *current;
-    
-    index = 0;
-    current = *stack;
-    while (current)
-    {
-        current->index = index;
-        index++;
-        current = current->next;
-    }
+	int		index;
+	t_push_swap	*current;
+	
+	index = 0;
+	current = *stack;
+	while (current)
+	{
+		current->index = index;
+		index++;
+		current = current->next;
+	}
 }
 
-void add_to_stack(t_push_swap **stack, t_push_swap *new_node)
+void	add_to_stack(t_push_swap **stack, t_push_swap *new_node)
 {
     t_push_swap *last;
 
