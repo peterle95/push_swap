@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:51:34 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/09 14:42:35 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/09 18:01:34 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ int main(int ac, char **av)
     
    // printf("After initialization:\n");
     // print_stacks(stack_a, stack_b);
-
-    /* Uncomment when implemented
     if (is_stack_sorted(stack_a))
     {
         printf("Stack is already sorted\n");
@@ -91,7 +89,6 @@ int main(int ac, char **av)
         free_stack(stack_b);
         return (0);
     }
-    */
     // printf("Running algorithm...\n");
     run_algorithm(stack_a, stack_b);
     

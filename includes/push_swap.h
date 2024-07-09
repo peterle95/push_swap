@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:51:41 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/09 17:57:18 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/09 18:03:45 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void free_split(char **split);
 // Utils
 long ft_atol(const char *str);
 int find_min_position(t_push_swap *stack);
+int is_stack_sorted(t_push_swap **stack);
 
 // Lists
 int push_swap_lstsize(t_push_swap *lst);

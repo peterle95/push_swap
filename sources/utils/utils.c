@@ -6,11 +6,28 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:55:02 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/09 12:08:27 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/09 18:04:00 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+int is_stack_sorted(t_push_swap **stack)
+{
+    t_push_swap *current;
+
+    if (!stack)
+        return (1);  // An empty stack is considered sorted
+
+    current = *stack;
+    while (current->next)
+    {
+        if (current->value > current->next->value)
+            return (0);  // Not sorted
+        current = current->next;
+    }
+    return (1);  // Sorted
+}
 
 int find_min_position(t_push_swap *stack)
 {
