@@ -12,76 +12,82 @@
 
 #include "../../includes/push_swap.h"
 
-int is_number(char *str)
+int	is_number(char *str)
 {
-    int i = 0;
+	int		i;
 
-    if (str[i] == '-' || str[i] == '+')
-        i++;
-    while (str[i])
-    {
-        if (!ft_isdigit(str[i]))
-            return (0);
-        i++;
-    }
-    return (1);
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
-int is_stack_sorted(t_push_swap **stack)
+int	is_stack_sorted(t_push **stack)
 {
-    t_push_swap *current;
+	t_push	*current;
 
-    if (!stack)
-        return (1);  // An empty stack is considered sorted
+	if (!stack)
+		return (1);  // An empty stack is considered sorted
 
-    current = *stack;
-    while (current->next)
-    {
-        if (current->value > current->next->value)
-            return (0);  // Not sorted
-        current = current->next;
-    }
-    return (1);  // Sorted
+	current = *stack;
+	while (current->next)
+	{
+		if (current->value > current->next->value)
+			return (0);  // Not sorted
+		current = current->next;
+	}
+	return (1);  // Sorted
 }
 
-int find_min_position(t_push_swap *stack)
+int	find_min_position(t_push *stack)
 {
-    int min = stack->value;
-    int pos = 0;
-    int min_pos = 0;
-    t_push_swap *current = stack;
+	int		min;
+	int		pos;
+	int		min_pos;
+	t_push	*current;
 
-    while (current)
-    {
-        if (current->value < min)
-        {
-            min = current->value;
-            min_pos = pos;
-        }
-        current = current->next;
-        pos++;
-    }
-
-    return min_pos;
+	min = stack->value;
+	pos = 0;
+	min_pos = 0;
+	current = stack;
+	while (current)
+	{
+		if (current->value < min)
+		{
+			min = current->value;
+			min_pos = pos;
+		}
+		current = current->next;
+		pos++;
+	}
+	return (min_pos);
 }
 
-long ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
-    long result = 0;
-    int sign = 1;
-    
-    while (*str == ' ' || (*str >= 9 && *str <= 13))
-        str++;
-    if (*str == '-' || *str == '+')
-    {
-        if (*str == '-')
-            sign = -1;
-        str++;
-    }
-    while (*str >= '0' && *str <= '9')
-    {
-        result = result * 10 + (*str - '0');
-        str++;
-    }
-    return (sign * result);
+	long	result;
+	int		sign;
+
+	result = 0;
+	sign = 1;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + (*str - '0');
+		str++;
+	}
+	return (sign * result);
 }

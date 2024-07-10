@@ -14,10 +14,10 @@
 
 // CHECK
 
-int	rotate(t_push_swap **stack)
+int	rotate(t_push **stack)
 {
-	t_push_swap	*head;
-	t_push_swap	*tail;
+	t_push	*head;
+	t_push	*tail;
 
 	if (push_swap_lstsize(*stack) < 2)
 		return (-1);
@@ -29,7 +29,7 @@ int	rotate(t_push_swap **stack)
 	return (0);
 }
 
-int ra(t_push_swap **stack_a)
+int ra(t_push **stack_a)
 {
     if (rotate(stack_a) == -1) {
         return (-1);
@@ -38,7 +38,7 @@ int ra(t_push_swap **stack_a)
     return (0);
 }
 
-int rb(t_push_swap **stack_b)
+int rb(t_push **stack_b)
 {
     if (rotate(stack_b) == -1) {
         return (-1);
@@ -47,7 +47,7 @@ int rb(t_push_swap **stack_b)
     return (0);
 }
 
-int rr(t_push_swap **stack_a, t_push_swap **stack_b)
+int rr(t_push **stack_a, t_push **stack_b)
 {
     if (push_swap_lstsize(*stack_a) < 2 || push_swap_lstsize(*stack_b) < 2) {
         return (-1);

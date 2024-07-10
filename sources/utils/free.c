@@ -12,31 +12,33 @@
 
 #include "../../includes/push_swap.h"
 
-void free_split(char **split)
+void	free_split(char **split)
 {
-    int i = 0;
-    while (split[i])
-    {
-        free(split[i]);
-        i++;
-    }
-    free(split);
+	int		i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }
 
-void free_stack(t_push_swap **stack)
+void	free_stack(t_push **stack)
 {
-    t_push_swap *current;
-    t_push_swap *next;
+	t_push *current;
+	t_push *next;
 
-    if (!stack || !(*stack))
-        return;
+	if (!stack || !(*stack))
+		return;
 
-    current = *stack;
-    while (current)
-    {
-        next = current->next;
-        free(current);
-        current = next;
-    }
-    *stack = NULL;
+	current = *stack;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	*stack = NULL;
 }

@@ -16,10 +16,10 @@
 // CHANGE
 // Swaps first two elements of a stack | sa and sb
 
-int	swap(t_push_swap **stack)
+int	swap(t_push **stack)
 {
-	t_push_swap	*head;
-	t_push_swap	*next;
+	t_push	*head;
+	t_push	*next;
 	int		tmp_val;
 	int		tmp_index;
 
@@ -38,7 +38,7 @@ int	swap(t_push_swap **stack)
 	return (0);
 }
 
-int	sa(t_push_swap **stack_a)
+int	sa(t_push **stack_a)
 {
 	if (swap(stack_a) == -1)
 		return (-1);
@@ -46,7 +46,7 @@ int	sa(t_push_swap **stack_a)
 	return (0);
 }
 
-int	sb(t_push_swap **stack_b)
+int	sb(t_push **stack_b)
 {
 	if (swap(stack_b) == -1)
 		return (-1);
@@ -54,7 +54,7 @@ int	sb(t_push_swap **stack_b)
 	return (0);
 }
 
-int	ss(t_push_swap **stack_a, t_push_swap **stack_b)
+int	ss(t_push **stack_a, t_push **stack_b)
 {
 	if ((push_swap_lstsize(*stack_a) < 2) || 
 		(push_swap_lstsize(*stack_b) < 2))

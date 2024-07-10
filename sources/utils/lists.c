@@ -12,10 +12,12 @@
 
 #include "../../includes/push_swap.h"
 
-int push_swap_lstsize(t_push_swap *lst)
+int	push_swap_lstsize(t_push *lst)
 {
+	// change this function
+	// or maybe keep it since it's from libft
 	int	i;
-	t_push_swap	*temp;
+	t_push	*temp;
 	
 	i = 0;
 	temp = lst;
@@ -28,9 +30,9 @@ int push_swap_lstsize(t_push_swap *lst)
 }
 
 // Returns the last node of a list 
-t_push_swap	*push_swap_lstlast(t_push_swap *head)
+t_push	*push_swap_lstlast(t_push *head)
 {
-	t_push_swap	*tmp;
+	t_push	*tmp;
 
 	tmp = head;
 	while (tmp->next)

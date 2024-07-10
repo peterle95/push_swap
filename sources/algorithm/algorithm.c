@@ -12,7 +12,7 @@
 
 #include "../../includes/push_swap.h"
 
-void	algorithm_3(t_push_swap **stack)
+void	algorithm_3(t_push **stack)
 {
 	/* printf("Starting algorithm_3\n");
 	print_stack(stack); */
@@ -23,7 +23,7 @@ void	algorithm_3(t_push_swap **stack)
 	a = (*stack)->value;
 	b = (*stack)->next->value;
 	c = (*stack)->next->next->value;
-    
+
 	if (a > b && b < c && a < c)
 		sa(stack);
 	else if (a > b && b > c)
@@ -42,7 +42,7 @@ void	algorithm_3(t_push_swap **stack)
 		rra(stack);
 }
 
-void	algorithm_4(t_push_swap **stack_a, t_push_swap **stack_b)
+void	algorithm_4(t_push **stack_a, t_push **stack_b)
 {
    	/* printf("Starting algorithm_4\n");
     print_stacks(stack_a, stack_b); */
@@ -66,7 +66,7 @@ void	algorithm_4(t_push_swap **stack_a, t_push_swap **stack_b)
     print_stacks(stack_a, stack_b); */
 }
 
-void	algorithm_5(t_push_swap **stack_a, t_push_swap **stack_b)
+void	algorithm_5(t_push **stack_a, t_push **stack_b)
 {
 	int		min_pos;
 	min_pos = find_min_position(*stack_a);
@@ -90,7 +90,7 @@ void	algorithm_5(t_push_swap **stack_a, t_push_swap **stack_b)
 	pa(stack_a, stack_b);
 }
 
-void	run_algorithm(t_push_swap **stack_a, t_push_swap **stack_b)
+void	run_algorithm(t_push **stack_a, t_push **stack_b)
 {
     // printf("Starting algorithm\n");
     // print_stacks(stack_a, stack_b);

@@ -17,10 +17,10 @@
 /* Shifts down all elements of a stack by 1. 
  * The last element becomes the first one | rra and rrb
  */
-int	reverse_rotate(t_push_swap **stack)
+int	reverse_rotate(t_push **stack)
 {
-	t_push_swap	*head;
-	t_push_swap	*tail;
+	t_push	*head;
+	t_push	*tail;
 
 	if (push_swap_lstsize(*stack) < 2)
 		return (-1);
@@ -40,7 +40,7 @@ int	reverse_rotate(t_push_swap **stack)
 	return (0);
 }
 
-int	rra(t_push_swap **stack_a)
+int	rra(t_push **stack_a)
 {
 	if (reverse_rotate(stack_a) == -1)
 		return (-1);
@@ -48,7 +48,7 @@ int	rra(t_push_swap **stack_a)
 	return (0);
 }
 
-int	rrb(t_push_swap **stack_b)
+int	rrb(t_push **stack_b)
 {
 	if (reverse_rotate(stack_b) == -1)
 		return (-1);
@@ -56,7 +56,7 @@ int	rrb(t_push_swap **stack_b)
 	return (0);
 }
 
-int	rrr(t_push_swap **stack_a, t_push_swap **stack_b)
+int	rrr(t_push **stack_a, t_push **stack_b)
 {
 	if ((push_swap_lstsize(*stack_a) < 2) || (push_swap_lstsize(*stack_b) < 2))
 		return (-1);
