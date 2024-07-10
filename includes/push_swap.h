@@ -6,25 +6,14 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:51:41 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/09 18:03:45 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/09 23:32:12 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-
-
 # include "../libft/libft.h"
-
-typedef struct s_push_swap
-{
-    int value;
-    int index;
-    struct s_push_swap  *next;
-}t_push_swap;
-
-
 # include <stddef.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -32,9 +21,15 @@ typedef struct s_push_swap
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-#include <stdio.h>
-#include <string.h>
+# include <stdio.h>
+# include <string.h>
 
+typedef struct s_push_swap
+{
+    int value;
+    int index;
+    struct s_push_swap  *next;
+}t_push_swap;
 
 // Rotation
 int ra(t_push_swap **stack_a);
@@ -72,6 +67,11 @@ void free_split(char **split);
 long ft_atol(const char *str);
 int find_min_position(t_push_swap *stack);
 int is_stack_sorted(t_push_swap **stack);
+int is_number(char *str);
+
+// Check_arg
+int check_duplicates(int ac, char **av);
+
 
 // Lists
 int push_swap_lstsize(t_push_swap *lst);
@@ -83,7 +83,7 @@ void run_algorithm(t_push_swap **stack_a, t_push_swap **stack_b);
 void radix(t_push_swap **stack_a, t_push_swap **stack_b);
 
 // Debugging
-void print_stacks(t_push_swap **stack_a, t_push_swap **stack_b);
-void print_stack(t_push_swap **stack_a);
+//void print_stacks(t_push_swap **stack_a, t_push_swap **stack_b);
+// void print_stack(t_push_swap **stack_a);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:51:34 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/09 18:01:34 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/09 23:50:51 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void print_stack(t_push_swap **stack_a)
+/* void print_stack(t_push_swap **stack_a)
 {
     t_push_swap *temp_a = *stack_a;
 
@@ -55,33 +55,23 @@ void print_stacks(t_push_swap **stack_a, t_push_swap **stack_b)
         printf("\n");
     }
     printf("--------------------\n");
-}
+} */
 
 int main(int ac, char **av)
 {
     t_push_swap **stack_a;
     t_push_swap **stack_b;
 
-    printf("Starting program with %d arguments\n", ac);
-
-     // printf("Parsing input...\n");
     if (parse(ac, av) == 0)
     {
         printf("Parsing failed\n");
         return(0);
     }
-    // printf("Parsing successful\n");
-
     stack_a = (t_push_swap **)malloc(sizeof(t_push_swap));
     stack_b = (t_push_swap **)malloc(sizeof(t_push_swap));
     *stack_a = NULL;
     *stack_b = NULL;
-
-    // printf("Initializing stack...\n");
     init_stack(&stack_a, ac, av);
-    
-   // printf("After initialization:\n");
-    // print_stacks(stack_a, stack_b);
     if (is_stack_sorted(stack_a))
     {
         printf("Stack is already sorted\n");
@@ -89,20 +79,11 @@ int main(int ac, char **av)
         free_stack(stack_b);
         return (0);
     }
-    // printf("Running algorithm...\n");
     run_algorithm(stack_a, stack_b);
-    
-    printf("Final state of stacks:\n");
-    print_stacks(stack_a, stack_b);
-    
-
-    printf("Freeing memory...\n");
     free_stack(stack_a);
     free_stack(stack_b);
     free(stack_a);
     free(stack_b);
-
-    printf("Program completed\n");
     return (0);
 }
 

@@ -6,11 +6,26 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:55:02 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/09 18:04:00 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/09 19:41:56 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+int is_number(char *str)
+{
+    int i = 0;
+
+    if (str[i] == '-' || str[i] == '+')
+        i++;
+    while (str[i])
+    {
+        if (!ft_isdigit(str[i]))
+            return (0);
+        i++;
+    }
+    return (1);
+}
 
 int is_stack_sorted(t_push_swap **stack)
 {
