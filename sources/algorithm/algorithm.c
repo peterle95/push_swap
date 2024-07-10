@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 16:24:47 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/09 23:33:20 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/10 13:25:28 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	algorithm_3(t_push **stack)
 {
-	/* printf("Starting algorithm_3\n");
-	print_stack(stack); */
 	int		a;
 	int		b;
 	int		c;
@@ -44,8 +42,6 @@ void	algorithm_3(t_push **stack)
 
 void	algorithm_4(t_push **stack_a, t_push **stack_b)
 {
-   	/* printf("Starting algorithm_4\n");
-    print_stacks(stack_a, stack_b); */
 	int		min_pos;
 
 	min_pos = find_min_position(*stack_a);
@@ -62,8 +58,6 @@ void	algorithm_4(t_push **stack_a, t_push **stack_b)
 	pb(stack_a, stack_b);
 	algorithm_3(stack_a);
 	pa(stack_a, stack_b);
-    /* printf("Ending algorithm_4\n");
-    print_stacks(stack_a, stack_b); */
 }
 
 void	algorithm_5(t_push **stack_a, t_push **stack_b)
@@ -92,10 +86,7 @@ void	algorithm_5(t_push **stack_a, t_push **stack_b)
 
 void	run_algorithm(t_push **stack_a, t_push **stack_b)
 {
-    // printf("Starting algorithm\n");
-    // print_stacks(stack_a, stack_b);
-    
-	if (push_swap_lstsize(*stack_a) == 2)
+ 	if (push_swap_lstsize(*stack_a) == 2)
 		sa(stack_a);
 	else if (push_swap_lstsize(*stack_a) == 3)
 		algorithm_3(stack_a);
@@ -105,5 +96,4 @@ void	run_algorithm(t_push **stack_a, t_push **stack_b)
 		algorithm_5(stack_a, stack_b);
 	else
 		radix(stack_a, stack_b);
-   // printf("Ending algorithm\n");
 }

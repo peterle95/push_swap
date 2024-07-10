@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:51:41 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/09 23:32:12 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/10 13:17:39 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	run_algorithm(t_push **stack_a, t_push **stack_b);
 void	radix(t_push **stack_a, t_push **stack_b);
 
 // Debugging
-//void print_stacks(t_push **stack_a, t_push **stack_b);
-// void print_stack(t_push **stack_a);
+void print_stacks(t_push **stack_a, t_push **stack_b);
+void print_stack(t_push **stack_a);
 
 #endif

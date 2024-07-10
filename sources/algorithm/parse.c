@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 22:11:47 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/09 23:34:53 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/10 14:12:43 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static int	validate_number(char *str)
 {
+	// change this function
 	long	num;
 
 	if (!is_number(str))
@@ -38,7 +39,7 @@ static int	validate_numbers(char **numbers, int start)
 	while (numbers[i])
 	{
 		if (!validate_number(numbers[i]))
-		return (0);
+			return (0);
 		i++;
 	}
 	return (1);

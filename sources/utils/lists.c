@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 16:13:49 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/09 11:52:52 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/10 13:44:01 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	push_swap_lstsize(t_push *lst)
 {
-	// change this function
-	// or maybe keep it since it's from libft
 	int	i;
 	t_push	*temp;
 	
