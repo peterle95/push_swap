@@ -14,15 +14,14 @@
 
 static int	validate_number(char *str)
 {
-	// change this function
 	long	num;
 
+	num = ft_atol(str);
 	if (!is_number(str))
 	{
 		ft_putendl_fd("Error", 2);
 		return (0);
 	}
-	num = ft_atol(str);
 	if (num > INT_MAX || num < INT_MIN)
 	{
 		ft_putendl_fd("Error", 2);
@@ -51,13 +50,11 @@ static char	**get_numbers(int ac, char **av, int *start)
 
 	if (ac == 2)
 	{
-        // printf("Splitting single argument\n");
 		numbers = ft_split(av[1], ' ');
 		*start = 0;
 	}
 	else
 	{
-        // printf("Using multiple arguments\n");
 		numbers = av;
 		*start = 1;
 	}

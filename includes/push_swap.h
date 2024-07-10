@@ -81,8 +81,4 @@ t_push	*push_swap_lstlast(t_push *head);
 void	run_algorithm(t_push **stack_a, t_push **stack_b);
 void	radix(t_push **stack_a, t_push **stack_b);
 
-// Debugging
-void print_stacks(t_push **stack_a, t_push **stack_b);
-void print_stack(t_push **stack_a);
-
 #endif

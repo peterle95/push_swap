@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
+/*
 void print_stack(t_push **stack_a)
 {
     t_push *temp_a = *stack_a;
@@ -55,36 +55,35 @@ void print_stacks(t_push **stack_a, t_push **stack_b)
         printf("\n");
     }
     printf("--------------------\n");
-}
+}*/
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    t_push **stack_a;
-    t_push **stack_b;
+	t_push	**stack_a;
+	t_push	**stack_b;
 
-    if (parse(ac, av) == 0)
-        return (0);
-    stack_a = (t_push **)malloc(sizeof(t_push*));
-    stack_b = (t_push **)malloc(sizeof(t_push*));
-    *stack_a = NULL;
-    *stack_b = NULL;
-    init_stack(&stack_a, ac, av);
-    if (is_stack_sorted(stack_a))
-    {
-        free_stack(stack_a);
-        free(stack_a);
-        free(stack_b);
-        return (0);
-    }
-    printf("Initial Stack:\n");
-    print_stacks(stack_a, stack_b);
+	if (parse(ac, av) == 0)
+		return (0);
+	stack_a = (t_push **) malloc(sizeof(t_push *));
+	stack_b = (t_push **) malloc(sizeof(t_push *));
+	*stack_a = NULL;
+	*stack_b = NULL;
+	init_stack(&stack_a, ac, av);
+	if (is_stack_sorted(stack_a))
+	{
+		free_stack(stack_a);
+		free(stack_a);
+		free(stack_b);
+		return (0);
+	}
+    /*printf("Initial Stack:\n");
+    print_stacks(stack_a, stack_b);*/
 	run_algorithm(stack_a, stack_b);
-    printf("Final Stack:\n");
-    print_stacks(stack_a, stack_b);
-    free_stack(stack_a);
-    free_stack(stack_b);
-    free(stack_a);
-    free(stack_b);
-    return (0);
+    /*printf("Final Stack:\n");
+    print_stacks(stack_a, stack_b);*/
+	free_stack(stack_a);
+	free_stack(stack_b);
+	free(stack_a);
+	free(stack_b);
+	return (0);
 }
-

@@ -34,7 +34,6 @@ int	is_stack_sorted(t_push **stack)
 
 	if (!stack)
 		return (1);  // An empty stack is considered sorted
-
 	current = *stack;
 	while (current->next)
 	{

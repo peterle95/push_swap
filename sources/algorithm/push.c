@@ -55,23 +55,23 @@ It moves the top element from stack_from to stack_to.
 It handles the case where stack_to is empty.
 It returns -1 if stack_from is empty, and 0 on successful push.*/
 
-int push(t_push **stack_to, t_push **stack_from)
+int	push(t_push **stack_to, t_push **stack_from)
 {
-    t_push *node_to_push;
+	t_push	*node_to_push;
 
     // Check if the source stack is empty
-    if (!*stack_from)
-        return (-1);
+	if (!*stack_from)
+		return (-1);
 
     // Remove the top node from the source stack
-    node_to_push = *stack_from;
-    *stack_from = (*stack_from)->next;
+	node_to_push = *stack_from;
+	*stack_from = (*stack_from)->next;
 
     // Add the node to the destination stack
-    node_to_push->next = *stack_to;
-    *stack_to = node_to_push;
+	node_to_push->next = *stack_to;
+	*stack_to = node_to_push;
 
-    return (0);
+	return (0);
 }
 
 /*Take the first element at the top of b and put it at the top of a.

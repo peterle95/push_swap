@@ -21,7 +21,6 @@ void	algorithm_3(t_push **stack)
 	a = (*stack)->value;
 	b = (*stack)->next->value;
 	c = (*stack)->next->next->value;
-
 	if (a > b && b < c && a < c)
 		sa(stack);
 	else if (a > b && b > c)
@@ -45,7 +44,6 @@ void	algorithm_4(t_push **stack_a, t_push **stack_b)
 	int		min_pos;
 
 	min_pos = find_min_position(*stack_a);
-    // Move the smallest number to the top
 	if (min_pos == 1)
 		ra(stack_a);
 	else if (min_pos == 2)
@@ -63,8 +61,8 @@ void	algorithm_4(t_push **stack_a, t_push **stack_b)
 void	algorithm_5(t_push **stack_a, t_push **stack_b)
 {
 	int		min_pos;
+
 	min_pos = find_min_position(*stack_a);
-    // Move the smallest number to the top
 	if (min_pos == 1)
 		ra(stack_a);
 	else if (min_pos == 2)
@@ -86,7 +84,7 @@ void	algorithm_5(t_push **stack_a, t_push **stack_b)
 
 void	run_algorithm(t_push **stack_a, t_push **stack_b)
 {
- 	if (push_swap_lstsize(*stack_a) == 2)
+	if (push_swap_lstsize(*stack_a) == 2)
 		sa(stack_a);
 	else if (push_swap_lstsize(*stack_a) == 3)
 		algorithm_3(stack_a);

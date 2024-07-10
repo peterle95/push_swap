@@ -27,12 +27,11 @@ void	free_split(char **split)
 
 void	free_stack(t_push **stack)
 {
-	t_push *current;
-	t_push *next;
+	t_push	*current;
+	t_push	*next;
 
 	if (!stack || !(*stack))
-		return;
-
+		return ;
 	current = *stack;
 	while (current)
 	{

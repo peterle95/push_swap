@@ -19,10 +19,10 @@ void	add_to_stack(t_push **stack, t_push *new_node)
 	if (*stack == NULL)
 	{
 		*stack = new_node;
-		return;
+		return ;
 	}
 	last = *stack;
- 	while (last->next != NULL) // check this unequal sign
+	while (last->next != NULL)
 		last = last->next;
 	last->next = new_node;
 }
