@@ -6,7 +6,7 @@
 #    By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/20 17:51:45 by pmolzer           #+#    #+#              #
-#    Updated: 2024/06/20 17:51:45 by pmolzer          ###   ########.fr        #
+#    Updated: 2024/07/23 13:44:32 by pmolzer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS =  $(wildcard sources/algorithm/*.c sources/utils/*.c)
 OBJS = ${SRCS:.c=.o}
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iincludes
+CFLAGS = -Wall -Wextra -Werror -Iincludes 
 
 RM = rm -rf
 
