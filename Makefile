@@ -17,7 +17,7 @@ SRCS =  $(wildcard sources/algorithm/*.c sources/utils/*.c)
 OBJS = ${SRCS:.c=.o}
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iincludes
+CFLAGS = -Wall -Wextra -Werror -Iincludes -g
 
 RM = rm -rf
 
