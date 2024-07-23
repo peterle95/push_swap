@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:51:41 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/10 13:17:39 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/23 13:55:05 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <stdio.h>
 # include <string.h>
 
+// test
 typedef struct s_push
 {
 	int				value;
