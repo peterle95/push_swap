@@ -22,7 +22,7 @@ which isalpha() is true—letters which are neither uppercase nor lowercase.
 
 int	ft_isalpha(int c)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')); 
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }
 
 /*
