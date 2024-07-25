@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 22:33:12 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/25 18:10:51 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/25 19:11:04 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,52 @@ void	sort_node_pointers(t_push **arr, int size)
 	int		i;
 	int		j;
 	t_push	*temp;
+	/*Declares variables: i and j for loop counters, temp for swapping pointers.*/
 
-	i = 0;
-	while (i < size - 1)
+	i = 1;
+	/*The purpose of this structure is to reduce the number of comparisons in each pass:
+
+	In the first pass, we compare all adjacent elements.
+	In each subsequent pass, we compare one fewer pair of elements because the largest 
+	element from the unsorted portion is already "bubbled up" to its correct position.
+	
+	This optimization reduces the total number of comparisons, 
+	making the algorithm slightly more efficient. For a size of 6, we do:
+	5 + 4 + 3 + 2 + 1 = 15 comparisons
+	Instead of 6 * 5 = 30 comparisons if we compared all elements in each pass.*/
+	while (i < size)
 	{
 		j = 0;
-		while (j < size - i - 1)
+		while (j < size - i)
+		/*Inner loop that compares adjacent elements.*/
 		{
 			if (arr[j]->value > arr[j + 1]->value)
+			/*Checks if the current element is greater than the next one.*/
 			{
 				temp = arr[j];
 				arr[j] = arr[j + 1];
 				arr[j + 1] = temp;
+				/*Swaps the pointers if they're in the wrong order.*/
 			}
 			j++;
 		}
 		i++;
+		/*Now, let's visualize this with the stack: 5, 2, 100, 33, 10, 7
+		Initial state of arr:
+		[5] -> [2] -> [100] -> [33] -> [10] -> [7] (i = 1)
+		Pass 1:
+		[2] -> [5] -> [33] -> [10] -> [7] -> [100] (i = 2)
+		Pass 2:
+		[2] -> [5] -> [10] -> [7] -> [33] -> [100] (i = 3)
+		Pass 3:
+		[2] -> [5] -> [7] -> [10] -> [33] -> [100] (i = 4)
+		Pass 4:
+		[2] -> [5] -> [7] -> [10] -> [33] -> [100] (i = 5)
+		Pass 5: 
+		[2] -> [5] -> [7] -> [10] -> [33] -> [100] (i = 6)
+
+		The function doesn't change the actual stack structure, only the order of pointers in the array. 
+		After sorting, the array of pointers is arranged so that they point to nodes in ascending order of their values.*/
 	}
 }
 
@@ -74,6 +104,29 @@ void	set_indices_from_array(t_push **arr, int size)
 		arr[i]->index = i;
 		i++;
 	}
+	/*After sorting, our array of pointers looks like this:
+	[2] -> [5] -> [7] -> [10] -> [33] -> [100]
+	Now, let's apply the set_indices_from_array function:
+	Initial state (values shown, indices not yet set):
+	[2] -> [5] -> [7] -> [10] -> [33] -> [100]
+	
+	Step 1 (i = 0):
+	[2,0] -> [5] -> [7] -> [10] -> [33] -> [100]
+
+	Step 2 (i = 1):
+	[2,0] -> [5,1] -> [7] -> [10] -> [33] -> [100]
+
+	Step 3 (i = 2):
+	[2,0] -> [5,1] -> [7,2] -> [10] -> [33] -> [100]
+
+	Step 4 (i = 3):
+	[2,0] -> [5,1] -> [7,2] -> [10,3] -> [33] -> [100]
+
+	Step 5 (i = 4):
+	[2,0] -> [5,1] -> [7,2] -> [10,3] -> [33,4] -> [100]
+	
+	Step 6 (i = 5):
+	[2,0] -> [5,1] -> [7,2] -> [10,3] -> [33,4] -> [100,5]*/
 }
 
 /*This is the main function that orchestrates the entire process of assigning indices to the stack nodes. 
