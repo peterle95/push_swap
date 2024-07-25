@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:55:02 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/25 14:36:07 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/25 17:12:33 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,25 @@ It returns an integer, which will be the position of the minimum value in the st
 		current = current->next;
 		pos++;
 	}
+	/*Esempio: 2 1 3 4
+	min = stack->value (2)
+	...
+	current = stack (2)
+	while(current)
+	{
+		if(2 < 2) [no!]	
+	}
+	current = current->next (1)
+	pos++ (1)
+	...
+		if(1 < 2) [yes!]
+		{
+			min = current->value (1)
+			min_pos = pos (1)
+		}
+	...
+	return(min_pos) (1)
+	*/
 	return (min_pos);
 }
 
