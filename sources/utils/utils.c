@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:55:02 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/09 19:41:56 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/25 14:36:07 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,22 @@ int	is_stack_sorted(t_push **stack)
 }
 
 int	find_min_position(t_push *stack)
+/*This function takes a pointer to the first node of a stack (t_push *stack).
+It returns an integer, which will be the position of the minimum value in the stack.*/
 {
 	int		min;
+	/*Will store the minimum value found so far.*/
 	int		pos;
+	/*Will keep track of the current position in the stack.*/
 	int		min_pos;
-	t_push	*current;
+	/*Will store the position of the minimum value.*/
+	t_push	*current; // A pointer used to traverse the stack.
 
-	min = stack->value;
+	min = stack->value; // Initializes min with the value of the first node in the stack.
 	pos = 0;
 	min_pos = 0;
 	current = stack;
+	//Initializes current to point to the first node of the stack.
 	while (current)
 	{
 		if (current->value < min)

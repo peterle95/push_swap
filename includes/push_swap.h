@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:51:41 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/23 13:55:05 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/23 19:03:17 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # include <stdio.h>
 # include <string.h>
 
-// test
 typedef struct s_push
 {
 	int				value;
@@ -81,5 +80,9 @@ t_push	*push_swap_lstlast(t_push *head);
 // Algorithm
 void	run_algorithm(t_push **stack_a, t_push **stack_b);
 void	radix(t_push **stack_a, t_push **stack_b);
+
+// Debugging
+void print_stacks(t_push **stack_a, t_push **stack_b);
+void print_stack(t_push **stack_a);
 
 #endif
