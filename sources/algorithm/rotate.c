@@ -6,26 +6,11 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 21:57:08 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/10 13:31:21 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/26 19:05:55 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-/* int	rotate(t_push **stack)
-{
-	t_push	*head;
-	t_push	*tail;
-
-	if (push_swap_lstsize(*stack) < 2)
-		return (-1);
-	head = *stack;
-	tail = push_swap_lstlast(head);
-	*stack = head->next;
-	head->next = NULL;
-	tail->next = head;
-	return (0);
-} */
 
 /*Reasoning behind the modifications:
 
@@ -84,6 +69,9 @@ and easier to understand and maintain. It also follows a more logical flow, firs
 all the nodes it needs to work with, and then performing the rotation operation.*/
 
 int rotate(t_push **stack)
+/* Let's visualize the rotate function with the stack: 3, 2, 5, 22
+Initial state:
+*stack -> [3] -> [2] -> [5] -> [22] -> NULL*/
 {
     t_push *old_first;
     t_push *new_first;
@@ -96,12 +84,27 @@ int rotate(t_push **stack)
     new_first = old_first->next;
     last = new_first;
 
+    /*  /*After setting initial pointers:
+    old_first = [3]
+    new_first = [2]
+    last = [2]*/
+
     while (last->next)
         last = last->next;
+    /*After while loop (finding last node):
+    old_first = [3]
+    new_first = [2]
+    last = [22]*/
 
     *stack = new_first;
+    /*Step 1: *stack = new_first
+        *stack -> [2] -> [5] -> [22] -> NULL*/
     last->next = old_first;
+    /*Step 2: last->next = old_first
+        *stack -> [2] -> [5] -> [22] -> [3]*/
     old_first->next = NULL;
+    /*Final state:
+        *stack -> [2] -> [5] -> [22] -> [3] -> NULL*/
 
     return (0);
 }

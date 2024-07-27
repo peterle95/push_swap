@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 18:18:56 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/10 13:27:55 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/26 19:14:57 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,16 +88,22 @@ It returns -1 for invalid operations and 0 for successful ones.
 The new version is more efficient (single-pass), clearer in its intentions, and easier to understand and maintain.*/
 
 int reverse_rotate(t_push **stack)
+/*Initial state:
+*stack -> [3] -> [2] -> [5] -> [22] -> NULL*/
 {
     t_push *current;
     t_push *new_last;
     t_push *old_last;
 
+	// remove current and just use old_last?
     if (!*stack || !(*stack)->next)
         return (-1);
 
     current = *stack;
     new_last = *stack;
+	/*After setting initial pointers:
+		current = [3]
+		new_last = [3]*/
 
     while (current->next)
     {
@@ -106,6 +112,9 @@ int reverse_rotate(t_push **stack)
         current = current->next;
     }
     old_last = current;
+	/*After the while loop:
+		current = [22] (old_last)
+		new_last = [5]*/
 
     new_last->next = NULL;
     old_last->next = *stack;

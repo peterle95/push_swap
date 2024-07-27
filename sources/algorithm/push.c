@@ -6,38 +6,11 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 18:18:43 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/10 13:20:32 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/27 10:58:49 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-/* int	push(t_push **stack_to, t_push **stack_from)
-{
-	t_push	*tmp;
-	t_push	*head_to;
-	t_push	*head_from;
-
-	if (push_swap_lstsize(*stack_from) == 0)
-		return (-1);
-	head_to = *stack_to;
-	head_from = *stack_from;
-	tmp = head_from;
-	head_from = head_from->next;
-	*stack_from = head_from;
-	if (!head_to)
-	{
-		head_to = tmp;
-		head_to->next = NULL;
-		*stack_to = head_to;
-	}
-	else
-	{
-		tmp->next = head_to;
-		*stack_to = tmp;
-	}
-	return (0);
-} */
 
 /*
 Key improvements in this version:
