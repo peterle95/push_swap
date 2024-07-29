@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:51:34 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/24 16:35:15 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/29 14:37:40 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(int ac, char **av)
     /*The use of double pointers for stack_a and stack_b in the main function is related to how linked lists are typically managed in C. 
     Let's break down the reasons:
     Representation of the stack:
-    
     In a linked list implementation, we typically use a pointer to represent the head of the list.
     So, t_push *stack_a would be a pointer to the first node of the stack.
     

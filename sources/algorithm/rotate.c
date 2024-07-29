@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 21:57:08 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/26 19:05:55 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/29 16:04:04 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ Initial state:
     new_first = old_first->next;
     last = new_first;
 
-    /*  /*After setting initial pointers:
+    /*After setting initial pointers:
     old_first = [3]
     new_first = [2]
     last = [2]*/

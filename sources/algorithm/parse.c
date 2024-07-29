@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 22:11:47 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/23 17:05:05 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/29 14:41:04 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,6 @@ ft_split returns a newly allocated array of strings (char **).
 When ac > 2 (multiple argument input):
 
 It directly returns av, which is already a char **.
-
-
-
 In both cases, the function needs to return a pointer to an array of strings, which in C is represented as char **.*/
 static char	**get_numbers(int ac, char **av, int *start)
 {
