@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 22:33:12 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/25 19:11:04 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/30 12:59:27 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,40 @@ t_push	**create_sorted_array(t_push *stack, int size)
 
 /*This function implements the bubble sort algorithm on the array of pointers created by create_sorted_array. 
 It sorts the pointers based on the values in the nodes they point to. The purpose is to arrange the pointers in 
-a way that reflects the sorted order of the stack elements, without actually modifying the original stack structure.*/
+a way that reflects the sorted order of the stack elements, without actually modifying the original stack structure.
+
+Yes, you could theoretically use the bubble sort algorithm directly on the stack instead of the radix sort. 
+However, there are important considerations:
+
+Implementation:
+To use bubble sort directly on the stack, you'd need to modify the algorithm to work with 
+linked list operations (swapping nodes) instead of array indices.
+
+Efficiency:
+Bubble sort has a time complexity of O(n^2) in the average and worst cases.
+Radix sort, as implemented for this project, has a time complexity of O(d * (n + b)), 
+where d is the number of digits, n is the number of elements, and b is the base (usually 10 or 2).
+For large datasets, radix sort is generally more efficient.
+
+
+Number of operations:
+Bubble sort typically requires more swaps, which in the context of push_swap translates to more stack operations.
+Radix sort can be implemented with fewer stack operations, which is crucial for the 
+push_swap project where the goal is to minimize the number of operations.
+
+
+Stack constraints:
+The push_swap project typically restricts you to using only specific operations (push, swap, rotate, reverse rotate).
+Implementing bubble sort with these constraints might lead to a higher number of operations compared to radix sort.
+
+
+Stability:
+Radix sort is stable, which can be beneficial in some scenarios.
+Bubble sort is also stable, but this is less relevant given the specific requirements of push_swap.
+
+Space complexity:
+Bubble sort can be implemented in-place, which aligns well with the stack structure.
+The radix sort implementation for push_swap typically uses the two stacks efficiently without additional space.*/
 void	sort_node_pointers(t_push **arr, int size)
 {
 	int		i;
