@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:58:23 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/24 16:18:14 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/07 12:29:18 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_push	*create_new_node(int value)
 	if (new_node == NULL)
 		return (NULL);
 	new_node->value = value;
-	/*Assignes the converted value from atol*/
+	/*Assignes the converted value from atoi*/
 	new_node->index = -1;
 	new_node->next = NULL;
 	return (new_node);
@@ -75,6 +75,31 @@ void	init_stack(t_push ***stack_a, int ac, char **av)
 	t_push	*new_node;
 	/*A pointer to a t_push structure, used to create new nodes.*/
 	char	**numbers;
+	/*is a double pointer because it's used to represent an array of strings. Let's break down why this is necessary:
+
+	String representation: In C, a string is represented as an array of characters (char *).
+	Array of strings: When you have multiple strings, you essentially have an array of character arrays. This is represented as char **.
+	Usage in init_stack:
+	
+	When ac == 2, numbers points to the result of ft_split(av[1], ' ').
+	ft_split returns an array of strings (char **) created by splitting the input string.
+	When ac > 2, numbers points directly to av, which is also an array of strings.
+	
+	Example:
+	If you have input like "./push_swap 5 3 2", then:
+	
+	av[0] is "./push_swap"
+	av[1] is "5"
+	av[2] is "3"
+	av[3] is "2"
+	
+	Each of these is a string (char *), and av itself is an array of these strings (char **).
+	Flexibility: Using char ** allows the function to handle both cases:
+	
+	A single string argument that needs to be split
+	Multiple string arguments already split
+	
+	By using a double pointer, the function can work with both these cases uniformly, iterating through the array of strings regardless of how they were input.*/
 
 	i = 0;
 	if (ac == 2)

@@ -6,12 +6,62 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 12:13:08 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/30 17:19:33 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/07 15:13:12 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
+
+/*ᓚᘏᗢ BITSHIFTING ᓚᘏᗢ
+
+Right bitshifting by 1 (>>) is a binary operation that moves all bits in a number one position to the right. 
+
+Here's a visual representation:
+Let's use an 8-bit integer as an example:
+
+1. Starting number: 22 (decimal)
+   Binary: 0 0 0 1 0 1 1 0
+
+2. After right shift by 1:
+   Binary: 0 0 0 0 1 0 1 1
+   
+   Result: 11 (decimal)
+
+Visual representation of the shift:
+
+```
+Before shift:  0 0 0 1 0 1 1 0  (22 in decimal)
+                ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↘
+After shift:   0 0 0 0 1 0 1 1  (11 in decimal)
+               ↑
+               |
+    This 0 comes in from the left
+```
+
+Key points:
+1. Each bit moves one position to the right.
+2. The rightmost bit (least significant bit) is lost.
+3. A 0 is inserted on the left (most significant bit).
+4. For positive numbers, this operation is equivalent to integer division by 2.
+
+Let's look at a few more examples:
+
+```
+1. Number: 40 (101000 in binary)
+   40 >> 1 = 20 (010100 in binary)
+
+2. Number: 15 (1111 in binary)
+   15 >> 1 = 7  (0111 in binary)
+
+3. Number: 1 (0001 in binary)
+   1 >> 1 = 0   (0000 in binary)
+```
+
+In the context of the `get_max_bits` function in the radix sort algorithm, 
+right shifting is used to efficiently count the number of bits needed to represent the largest number. 
+Each shift effectively divides the number by 2, 
+and the loop continues until the number becomes 0, counting how many shifts were needed.*/
 int get_max_bits(t_push *stack)
 {
     int max = 0;
@@ -89,7 +139,56 @@ void	radix(t_push **stack_a, t_push **stack_b)
 			/*((*stack_a)->index >> bit) & 1: This checks the bit-th bit of the index.
 
 			>> shifts the bits right, bringing the bit we're interested in to the least significant position.
-			& 1 performs a bitwise AND with 1, isolating just that bit.*/
+			& 1 performs a bitwise AND with 1, isolating just that bit.
+			Let's visualize this operation step by step, using an index of 5 and showing the process for each bit position.
+
+			Example:
+			Index: 5 (binary representation: 101)
+			
+			We'll go through the operation for bit positions 0, 1, and 2:
+			
+			1. Bit position 0:
+			
+			   Index:        1 0 1
+			   Right shift:  1 0 1 >> 0 = 1 0 1
+			   AND with 1:   1 0 1
+			               & 0 0 1
+			               -------
+			   Result:       0 0 1  (1 in decimal)
+			
+			Result is 1, so the condition is true.
+			
+			2. Bit position 1:
+			
+			   Index:        1 0 1
+			   Right shift:  1 0 1 >> 1 = 0 1 0
+			   AND with 1:   0 1 0
+			               & 0 0 1
+			               -------
+			   Result:       0 0 0  (0 in decimal)
+			
+			Result is 0, so the condition is false.
+			
+			3. Bit position 2:
+			
+			   Index:        1 0 1
+			   Right shift:  1 0 1 >> 2 = 0 0 1
+			   AND with 1:   0 0 1
+			               & 0 0 1
+			               -------
+			   Result:       0 0 1  (1 in decimal)
+			
+			Result is 1, so the condition is true.
+			
+			Visual summary:
+			Index: 5 (101 in binary)
+			
+			Bit position:   2   1   0
+			                |   |   |
+			Binary:         1   0   1
+			                |   |   |
+			Condition:     true false true
+			*/
 				ra(stack_a);
 			else
 				pb(stack_a, stack_b);
@@ -120,34 +219,61 @@ positive integers regardless of the original input values.
 2. Bit-by-bit sorting: The algorithm sorts the numbers based on their binary representation, starting from the 
 least significant bit (LSB) to the most significant bit (MSB).
 	
-	We'll use the same example: 3, 7, 1, 5, 2.
-	First, let's assign indices based on the sorted order:
-		Value:  1  2  3  5  7
-		Index:  0  1  2  3  4
-		Binary: 000 001 010 011 100
-
-	Now, let's sort these indices using radix sort, examining each bit from LSB to MSB:
-	Initial state:
-	Stack A: [3(2), 7(4), 1(0), 5(3), 2(1)]
-	Stack B: []
-
-	Sorting by Least Significant Bit (rightmost bit):
-	A: [7(4), 5(3), 3(2)]  // Odd indices (ending in 1)
-	B: [1(0), 2(1)]        // Even indices (ending in 0)
-	After merging: [1(0), 2(1), 7(4), 5(3), 3(2)]
-
-	Sorting by Second Bit:
-	A: [7(4), 5(3), 2(1)]  // 1 in second position
-	B: [1(0), 3(2)]        // 0 in second position
-	After merging: [1(0), 3(2), 7(4), 5(3), 2(1)]
-
-	Sorting by Most Significant Bit (leftmost bit):
-	A: [7(4), 5(3)]        // 1 in third position
-	B: [1(0), 3(2), 2(1)]  // 0 in third position
-	After merging: [1(0), 3(2), 2(1), 7(4), 5(3)]
-
-	Final Result:
-	Sorted Stack: [1(0), 2(1), 3(2), 5(3), 7(4)]
+	Initial stack:
+	A: [100(1), 25(0), 102(2)]
+	B: []
+	
+	Least Significant Bit (LSB):
+	
+	100(1): 001 & 1 = 1 (ra)
+	A: [25(0), 102(2), 100(1)]
+	B: []
+	
+	25(0):  000 & 1 = 0 (pb)
+	A: [102(2), 100(1)]
+	B: [25(0)]
+	
+	102(2): 010 & 1 = 0 (pb)
+	A: [100(1)]
+	B: [102(2), 25(0)]
+	
+	Now we pa all elements from B to A:
+	A: [25(0), 102(2), 100(1)]
+	B: []
+	
+	Second Bit:
+	
+	25(0):  000 & 10 = 0 (pb)
+	A: [102(2), 100(1)]
+	B: [25(0)]
+	
+	102(2): 010 & 10 = 10 = 2 (ra)
+	A: [100(1), 102(2)]
+	B: [25(0)]
+	
+	100(1): 001 & 10 = 0 (pb)
+	A: [102(2)]
+	B: [100(1), 25(0)]
+	
+	Now we pa all elements from B to A:
+	A: [25(0), 100(1), 102(2)]
+	B: []
+	
+	Most Significant Bit (MSB):
+	
+	25(0):  000 & 100 = 0 (ra)
+	A: [100(1), 102(2), 25(0)]
+	B: []
+	
+	100(1): 001 & 100 = 0 (ra)
+	A: [102(2), 25(0), 100(1)]
+	B: []
+	
+	102(2): 010 & 100 = 0 (ra)
+	A: [25(0), 100(1), 102(2)]
+	B: []
+	
+	No pa needed as B is empty and A is sorted.
 
 		Key Points:
 
