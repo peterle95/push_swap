@@ -6,24 +6,13 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 18:18:43 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/27 10:58:49 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/14 15:06:23 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
 /*
-Key improvements in this version:
-
-Simplified Logic: The function now has a more straightforward flow, making it easier to understand at a glance.
-Reduced Variable Usage: We've eliminated unnecessary variables, using only node_to_push to represent the node being moved.
-Early Return: We check if the source stack is empty at the beginning and return immediately if it is, avoiding unnecessary operations.
-Direct Manipulation: Instead of using temporary variables for head nodes, we directly manipulate the stack pointers, which is more efficient.
-Consistent Naming: We use node_to_push to clearly indicate what we're working with throughout the function.
-Removed Redundant Checks: The original version had some redundant checks and conditions, which have been removed to streamline the function.
-
-This version maintains the same functionality as the original:
-
 It moves the top element from stack_from to stack_to.
 It handles the case where stack_to is empty.
 It returns -1 if stack_from is empty, and 0 on successful push.*/

@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 22:11:47 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/29 14:41:04 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/14 12:00:08 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,6 @@ static int	validate_numbers(char **numbers, int start)
 	return (1);
 }
 
-/*The reason is related to how it handles different input scenarios:
-
-When ac == 2 (single string input):
-
-It uses ft_split to split the input string into an array of strings.
-ft_split returns a newly allocated array of strings (char **).
-
-
-When ac > 2 (multiple argument input):
-
-It directly returns av, which is already a char **.
-In both cases, the function needs to return a pointer to an array of strings, which in C is represented as char **.*/
 static char	**get_numbers(int ac, char **av, int *start)
 {
 	char	**numbers;
@@ -76,7 +64,31 @@ static char	**get_numbers(int ac, char **av, int *start)
 	}
 	return (numbers);
 }
+/*The use of double pointers (char **numbers) in both functions is related to 
+how arrays of strings are represented in C. Let's break down why this is necessary:
 
+In C, strings are represented as arrays of characters.
+When you have multiple strings, you essentially have an array of arrays of characters.
+In memory, this is represented as a contiguous block of memory addresses, each pointing to the start of a string.
+A double pointer (char **) is used to point to this array of pointers.
+Here's why it's used in each function:
+
+In get_numbers:
+When ac == 2, ft_split is used to split a single string into multiple strings. The 
+result of ft_split is an array of strings, which is represented as char **.
+When ac > 2, av (which is already a char **) is directly assigned to numbers.
+In parse:
+It needs to handle the result from get_numbers, which is a char **.
+This allows it to work with both the split result (when ac == 2) and the original av (when ac > 2).
+Using a double pointer allows these functions to:
+
+Handle an unknown number of strings
+Modify the array of strings if needed
+Pass this array of strings to other functions
+In essence, char **numbers represents a dynamic array of strings, which is necessary for 
+the flexibility required in parsing command-line arguments or split strings.
+
+*/
 int	parse(int ac, char **av)
 {
 	char	**numbers;
@@ -106,28 +118,3 @@ int	parse(int ac, char **av)
 	return (1);
 }
 
-/*The use of double pointers (char **numbers) in both functions is related to 
-how arrays of strings are represented in C. Let's break down why this is necessary:
-
-In C, strings are represented as arrays of characters.
-When you have multiple strings, you essentially have an array of arrays of characters.
-In memory, this is represented as a contiguous block of memory addresses, each pointing to the start of a string.
-A double pointer (char **) is used to point to this array of pointers.
-Here's why it's used in each function:
-
-In get_numbers:
-When ac == 2, ft_split is used to split a single string into multiple strings. The 
-result of ft_split is an array of strings, which is represented as char **.
-When ac > 2, av (which is already a char **) is directly assigned to numbers.
-In parse:
-It needs to handle the result from get_numbers, which is a char **.
-This allows it to work with both the split result (when ac == 2) and the original av (when ac > 2).
-Using a double pointer allows these functions to:
-
-Handle an unknown number of strings
-Modify the array of strings if needed
-Pass this array of strings to other functions
-In essence, char **numbers represents a dynamic array of strings, which is necessary for 
-the flexibility required in parsing command-line arguments or split strings.
-
-*/
