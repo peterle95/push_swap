@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 12:13:08 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/07 15:13:12 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/15 13:27:46 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int get_max_bits(t_push *stack)
     while (max)
 	// Start a new loop that continues while max is not zero.
     {
-        max >>= 1;
+        max = max >> 1;
 		// Right-shift max by 1 bit (equivalent to dividing by 2).
         max_bits++;
     }
