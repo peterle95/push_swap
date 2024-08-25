@@ -3,24 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzimmerm <hzimmerm@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 12:16:45 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/06/17 13:42:02 by hzimmerm         ###   ########.fr       */
+/*   Created: 2023/11/17 11:10:07 by pmolzer           #+#    #+#             */
+/*   Updated: 2024/08/25 15:03:41 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	DESCRIPTION :
-	The function ft_putnbr_fd writes the given integer n on the given
-	file descriptor by converting it into char.
-
-	RETURN VALUE :
-	None.
-*/
 
 #include "libft.h"
-// #include <stdio.h>
 
 void	ft_putnbr_fd(int n, int fd)
 {
