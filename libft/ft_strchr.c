@@ -21,8 +21,6 @@
 */
 
 #include "libft.h"
-// #include <stdio.h>
-// #include <string.h>
 
 char	*ft_strchr(const char *str, int c)
 {
@@ -44,18 +42,3 @@ char	*ft_strchr(const char *str, int c)
 	}
 	return (NULL);
 }
-
-/*int main()
-{
-	char str[] = "Hello, world!";
-	char c = 'l';
-	char *ptr = ft_strchr(str, c);
-
-	if (ptr)
-		printf("The character '%c' is found
-	       	at position %ld in the string \"%s\".\n", c, ptr - str, str);
-	else
-		printf("The character '%c' is not found in the string \"%s\".\n", c, str);
-
-	return 0;
-}*/

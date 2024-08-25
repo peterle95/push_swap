@@ -10,21 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-DESCRIPTION :
-The function ft_strnstr searches the first n bytes of the given string
-s1 for the first occurence of the full string s2.
-Characters that appear after \0 are not searched.
-
-RETURN VALUE :
-A pointer to the first character of the first occurrence of s2.
-A pointer to s1 if s2 is empty.
-NULL if s2 occurs nowhere in s1.
-*/
-
 #include "libft.h"
-// #include <stdio.h>
-// #include <string.h>
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
@@ -50,25 +36,3 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
-
-/* int main()
-{
-	char haystack[] = "Great Success, I Like!";
-	char needle[] = "Success";
-	size_t haystack_size = ft_strlen(haystack);
-	size_t needle_size = ft_strlen(needle);
-
-	char *result = ft_strnstr(haystack, needle, haystack_size);
-	if (result)
-	{
-		printf("The needle \"%s\" was found in the
-	       	haystack \"%s\" at index %ld\n", needle, haystack, result - haystack);
-	}
-	else
-	{
-		printf("The needle \"%s\" was not found in the 
-		haystack \"%s\"\n", needle, haystack);
-	}
-
-	return 0;
-}*/

@@ -40,7 +40,9 @@ void	algorithm_3(t_push **stack)
 		rra(stack);
 }
 
-// Sorts a stack of 4 elements by moving the smallest to stack B, sorting the remaining 3, then moving the smallest back
+// Sorts a stack of 4 elements by moving 
+// the smallest to stack B, sorting the remaining 3, 
+// then moving the smallest back
 void	algorithm_4(t_push **stack_a, t_push **stack_b)
 {
 	int		min_pos;
@@ -60,7 +62,9 @@ void	algorithm_4(t_push **stack_a, t_push **stack_b)
 	pa(stack_a, stack_b);
 }
 
-// Sorts a stack of 5 elements by moving the smallest to stack B, sorting the remaining 4, then moving the smallest back
+// Sorts a stack of 5 elements by moving 
+// the smallest to stack B, sorting the remaining 4, 
+// then moving the smallest back
 void	algorithm_5(t_push **stack_a, t_push **stack_b)
 {
 	int		min_pos;
@@ -85,7 +89,8 @@ void	algorithm_5(t_push **stack_a, t_push **stack_b)
 	pa(stack_a, stack_b);
 }
 
-// Chooses and runs the appropriate sorting algorithm based on the number of elements in the stack
+// Chooses and runs the appropriate sorting 
+// algorithm based on the number of elements in the stack
 void	run_algorithm(t_push **stack_a, t_push **stack_b)
 {
 	if (push_swap_lstsize(*stack_a) == 2)

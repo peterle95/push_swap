@@ -13,28 +13,24 @@
 #include "../../includes/push_swap.h"
 
 // Swaps the first two elements of a stack
-int swap(t_push **stack)
+int	swap(t_push **stack)
 {
-    t_push *first;
-    t_push *second;
-    int temp_value;
-    int temp_index;
+	int		temp_value;
+	int		temp_index;
+	t_push	*first;
+	t_push	*second;
 
-    if (!*stack || !(*stack)->next)
-        return (-1);
-
-    first = *stack;
-    second = first->next;
-
-    temp_value = first->value;
-    temp_index = first->index;
-
-    first->value = second->value;
+	if (!*stack || !(*stack)->next)
+		return (-1);
+	first = *stack;
+	second = first->next;
+	temp_value = first->value;
+	temp_index = first->index;
+	first->value = second->value;
 	first->index = second->index;
-	
-    second->value = temp_value;
-    second->index = temp_index;
-    return (0);
+	second->value = temp_value;
+	second->index = temp_index;
+	return (0);
 }
 
 // Performs swap operation on stack A and prints "sa"
@@ -58,8 +54,8 @@ int	sb(t_push **stack_b)
 // Performs swap operation on both stacks A and B and prints "ss"
 int	ss(t_push **stack_a, t_push **stack_b)
 {
-	if ((push_swap_lstsize(*stack_a) < 2) || 
-		(push_swap_lstsize(*stack_b) < 2))
+	if ((push_swap_lstsize(*stack_a) < 2)
+		|| (push_swap_lstsize(*stack_b) < 2))
 		return (-1);
 	swap(stack_a);
 	swap(stack_b);

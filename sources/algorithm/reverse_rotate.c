@@ -13,31 +13,27 @@
 #include "../../includes/push_swap.h"
 
 // Moves the last element of the stack to the front
-int reverse_rotate(t_push **stack)
+int	reverse_rotate(t_push **stack)
 {
-    t_push *current;
-    t_push *new_last;
-    t_push *old_last;
+	t_push	*current;
+	t_push	*new_last;
+	t_push	*old_last;
 
-    if (!*stack || !(*stack)->next)
-        return (-1);
-
-    current = *stack;
-    new_last = *stack;
-
-    while (current->next)
-    {
-        if (current->next->next == NULL)
-            new_last = current;
-        current = current->next;
-    }
-    old_last = current;
-
-    new_last->next = NULL;
-    old_last->next = *stack;
-    *stack = old_last;
-
-    return (0);
+	if (!*stack || !(*stack)->next)
+		return (-1);
+	current = *stack;
+	new_last = *stack;
+	while (current->next)
+	{
+		if (current->next->next == NULL)
+			new_last = current;
+		current = current->next;
+	}
+	old_last = current;
+	new_last->next = NULL;
+	old_last->next = *stack;
+	*stack = old_last;
+	return (0);
 }
 
 // Performs reverse rotate operation on stack A and prints "rra"

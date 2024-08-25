@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
@@ -31,13 +30,3 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd(nbr + '0', fd);
 }
-
-/*int main(void)
-{
-	int n = 42;
-	int fd = 1; // 1 is the file descriptor for stdout
-
-	ft_putnbr_fd(n, fd);
-
-	return 0;
-}*/

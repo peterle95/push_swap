@@ -12,26 +12,27 @@
 
 #include "../../includes/push_swap.h"
 
-// Calculates the number of bits needed to represent the largest index in the stack
-int get_max_bits(t_push *stack)
+// Calculates the number of bits needed to 
+// represent the largest index in the stack
+int	get_max_bits(t_push *stack)
 {
-    int max = 0;
-    int max_bits = 0;
+	int		max;
+	int		max_bits;
 
-    while (stack)
-    {
-        if (stack->index > max)
-            max = stack->index;
-        stack = stack->next;
-    }
-
-    while (max)
-    {
-        max = max >> 1;
-        max_bits++;
-    }
-
-    return (max_bits);
+	max = 0;
+	max_bits = 0;
+	while (stack)
+	{
+		if (stack->index > max)
+			max = stack->index;
+		stack = stack->next;
+	}
+	while (max)
+	{
+		max = max >> 1;
+		max_bits++;
+	}
+	return (max_bits);
 }
 
 // Implements the radix sort algorithm to sort the stack
