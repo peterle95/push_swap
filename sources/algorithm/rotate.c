@@ -6,72 +6,14 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 21:57:08 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/29 16:04:04 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/25 14:41:52 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-/*Reasoning behind the modifications:
-
-Simplified Size Check:
-
-Old: if (push_swap_lstsize(*stack) < 2)
-New: if (!*stack || !(*stack)->next)
-Reason: This avoids calling a separate function, making the check more efficient and direct.
-
-
-Improved Variable Naming:
-
-Changed head to old_first, introduced new_first, and tail to last.
-Reason: These names more clearly describe the roles of each pointer in the function.
-
-
-Removed Dependency:
-
-The function no longer depends on push_swap_lstlast, making it more self-contained.
-Reason: This improves modularity and reduces function call overhead.
-
-
-Single-Pass Algorithm:
-
-The new version finds the last node in a single pass through the list.
-Reason: This is more efficient than calling a separate function to find the last node.
-
-
-Clear Structure:
-
-The operations are now more clearly laid out, showing exactly how the list is being rearranged.
-Reason: Improves readability and makes the function's logic more apparent.
-
-
-Direct Pointer Manipulation:
-
-We directly manipulate the pointers to rearrange the list.
-Reason: This approach is more straightforward and efficient.
-
-
-Logical Order of Operations:
-
-The new version first identifies all necessary nodes, then performs the rotation.
-Reason: This separation of "finding" and "manipulating" makes the code easier to understand and maintain.
-
-
-
-This improved version maintains the same functionality:
-
-It moves the first element of the stack to the end.
-It handles cases with less than two elements correctly.
-It returns -1 for invalid operations and 0 for successful ones.
-
-The new version is more efficient (avoids extra function calls), clearer in its intentions, 
-and easier to understand and maintain. It also follows a more logical flow, first identifying 
-all the nodes it needs to work with, and then performing the rotation operation.*/
-
+// Rotates the stack by moving the first element to the end
 int rotate(t_push **stack)
-/* Let's visualize the rotate function with the stack: 3, 2, 5, 22
-Initial state:
-*stack -> [3] -> [2] -> [5] -> [22] -> NULL*/
 {
     t_push *old_first;
     t_push *new_first;
@@ -84,51 +26,39 @@ Initial state:
     new_first = old_first->next;
     last = new_first;
 
-    /*After setting initial pointers:
-    old_first = [3]
-    new_first = [2]
-    last = [2]*/
-
     while (last->next)
         last = last->next;
-    /*After while loop (finding last node):
-    old_first = [3]
-    new_first = [2]
-    last = [22]*/
 
     *stack = new_first;
-    /*Step 1: *stack = new_first
-        *stack -> [2] -> [5] -> [22] -> NULL*/
     last->next = old_first;
-    /*Step 2: last->next = old_first
-        *stack -> [2] -> [5] -> [22] -> [3]*/
     old_first->next = NULL;
-    /*Final state:
-        *stack -> [2] -> [5] -> [22] -> [3] -> NULL*/
 
     return (0);
 }
 
+// Performs rotate operation on stack A and prints "ra"
 int ra(t_push **stack_a)
 {
     if (rotate(stack_a) == -1) 
     {
         return (-1);
     }
-    ft_putendl_fd("ra", 1); // Assuming ft_putendl_fd prints "ra" to stdout
+    ft_putendl_fd("ra", 1);
     return (0);
 }
 
+// Performs rotate operation on stack B and prints "rb"
 int rb(t_push **stack_b)
 {
     if (rotate(stack_b) == -1) 
     {
         return (-1);
     }
-    ft_putendl_fd("rb", 1); // Assuming ft_putendl_fd prints "rb" to stdout
+    ft_putendl_fd("rb", 1);
     return (0);
 }
 
+// Performs rotate operation on both stacks A and B and prints "rr"
 int rr(t_push **stack_a, t_push **stack_b)
 {
     if (push_swap_lstsize(*stack_a) < 2 || push_swap_lstsize(*stack_b) < 2) 
@@ -137,6 +67,6 @@ int rr(t_push **stack_a, t_push **stack_b)
     }
     rotate(stack_a);
     rotate(stack_b);
-    ft_putendl_fd("rr", 1); // Assuming ft_putendl_fd prints "rr" to stdout
+    ft_putendl_fd("rr", 1);
     return (0);
 }

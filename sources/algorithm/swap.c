@@ -6,12 +6,13 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 18:19:09 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/14 15:04:35 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/25 14:42:03 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
+// Swaps the first two elements of a stack
 int swap(t_push **stack)
 {
     t_push *first;
@@ -36,6 +37,7 @@ int swap(t_push **stack)
     return (0);
 }
 
+// Performs swap operation on stack A and prints "sa"
 int	sa(t_push **stack_a)
 {
 	if (swap(stack_a) == -1)
@@ -44,6 +46,7 @@ int	sa(t_push **stack_a)
 	return (0);
 }
 
+// Performs swap operation on stack B and prints "sb"
 int	sb(t_push **stack_b)
 {
 	if (swap(stack_b) == -1)
@@ -52,6 +55,7 @@ int	sb(t_push **stack_b)
 	return (0);
 }
 
+// Performs swap operation on both stacks A and B and prints "ss"
 int	ss(t_push **stack_a, t_push **stack_b)
 {
 	if ((push_swap_lstsize(*stack_a) < 2) || 

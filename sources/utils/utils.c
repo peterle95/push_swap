@@ -6,12 +6,13 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:55:02 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/25 17:12:33 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/25 14:42:26 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
+// Checks if a string represents a valid number
 int	is_number(char *str)
 {
 	int		i;
@@ -28,39 +29,35 @@ int	is_number(char *str)
 	return (1);
 }
 
+// Checks if the stack is sorted in ascending order
 int	is_stack_sorted(t_push **stack)
 {
 	t_push	*current;
 
 	if (!stack)
-		return (1);  // An empty stack is considered sorted
+		return (1);
 	current = *stack;
 	while (current->next)
 	{
 		if (current->value > current->next->value)
-			return (0);  // Not sorted
+			return (0);
 		current = current->next;
 	}
-	return (1);  // Sorted
+	return (1);
 }
 
+// Finds the position of the minimum value in the stack
 int	find_min_position(t_push *stack)
-/*This function takes a pointer to the first node of a stack (t_push *stack).
-It returns an integer, which will be the position of the minimum value in the stack.*/
 {
 	int		min;
-	/*Will store the minimum value found so far.*/
 	int		pos;
-	/*Will keep track of the current position in the stack.*/
 	int		min_pos;
-	/*Will store the position of the minimum value.*/
-	t_push	*current; // A pointer used to traverse the stack.
+	t_push	*current;
 
-	min = stack->value; // Initializes min with the value of the first node in the stack.
+	min = stack->value;
 	pos = 0;
 	min_pos = 0;
 	current = stack;
-	//Initializes current to point to the first node of the stack.
 	while (current)
 	{
 		if (current->value < min)
@@ -71,28 +68,10 @@ It returns an integer, which will be the position of the minimum value in the st
 		current = current->next;
 		pos++;
 	}
-	/*Esempio: 2 1 3 4
-	min = stack->value (2)
-	...
-	current = stack (2)
-	while(current)
-	{
-		if(2 < 2) [no!]	
-	}
-	current = current->next (1)
-	pos++ (1)
-	...
-		if(1 < 2) [yes!]
-		{
-			min = current->value (1)
-			min_pos = pos (1)
-		}
-	...
-	return(min_pos) (1)
-	*/
 	return (min_pos);
 }
 
+// Converts a string to a long integer
 long	ft_atol(const char *str)
 {
 	long	result;
