@@ -80,7 +80,7 @@ void	run_algorithm(t_push **stack_a, t_push **stack_b);
 void	radix(t_push **stack_a, t_push **stack_b);
 
 // Debugging
-void print_stacks(t_push **stack_a, t_push **stack_b);
-void print_stack(t_push **stack_a);
+void	print_stacks(t_push **stack_a, t_push **stack_b);
+void	print_stack(t_push **stack_a);
 
 #endif
