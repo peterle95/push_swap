@@ -6,13 +6,12 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:51:34 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/25 14:40:28 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/26 15:41:28 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// Main function to initialize, sort, and clean up the push_swap program
 int	main(int ac, char **av)
 {
 	t_push	**stack_a;
